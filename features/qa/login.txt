@@ -1,0 +1,12 @@
+*** Settings ***
+Library  step_definition.installation_keywords
+
+*** Test Cases ***
+User can login successfully
+    I navigate to pivotal page
+    I click on login button
+    I set user "user"
+    I set password "12sdf"
+    I click on login
+    Dashboard is displayed
+

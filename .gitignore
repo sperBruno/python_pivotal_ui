@@ -1,1 +1,9 @@
-/.idea/
+.idea/
+venv/
+logs/
+reports/
+*.xml
+*.sonar_lock
+*.pyc
+*.log
+/scripts/.scannerwork/

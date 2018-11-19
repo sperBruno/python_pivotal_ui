@@ -7,3 +7,6 @@ Following you can see the tools that will be used for this porpuse:
 
  1. Robotframework
  2. Selenium
+
+Install:
+pip install robotframework

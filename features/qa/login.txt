@@ -1,0 +1,12 @@
+*** Settings ***
+Library  step_definitions.login_steps
+
+*** Test Cases ***
+User can login successfully
+    I navigate to pivotal page
+    I click on login button
+    I set 'Bruno' as user
+    I set password '12sdf'
+    I click on login
+    Dashboard is displayed
+

@@ -7,6 +7,6 @@ User can login successfully
     I click on login button
     I set 'Bruno' as user
     I set password '12sdf'
-    I click on login
+    I click on login button on login page
     Dashboard is displayed
 

@@ -5,7 +5,7 @@ ROOT_PATH=$(cd ..; pwd)
 
 rm  -rf ../logs && echo "Removed old log files"
 
-export PYTHONPATH="$ROOT_PATH/src:$ROOT_PATH/features"
+export PYTHONPATH="$ROOT_PATH/src:$ROOT_PATH/features:$ROOT_PATH/environment"
 
 echo $PYTHONPATH
 #export DISPLAY=:2.0
@@ -13,4 +13,5 @@ echo $PYTHONPATH
 robot --xunit ../reports/junit.xml \
       --report ../reports/html-report-pivotal-ui --log ../logs/html-log-pivotal \
       --logtitle Pivotal --suitestatlevel 1 --name Full-Regression-Suites \
-      --ArgumentFile ../argument_files/full_regression_suites.txt
+      --VariableFile ../environment/global_variables.py \
+      --ArgumentFile ../argument_files/full_regression_api_suites.txt

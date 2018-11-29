@@ -1,6 +1,6 @@
 from robot.libraries.BuiltIn import BuiltIn
-
 from pivotal_api_services.projects import ProjectServices
+from utils.json_schema_validator import validate_json_schema
 
 project_service = ProjectServices()
 CONTEXT = BuiltIn().get_variable_value('${CONTEXT}')
@@ -19,6 +19,8 @@ def i_verify_data_of_project_is_accurate(project_data):
     for key, value in project_data.items():
         assert actual_response[key] == value, "Project data {} != {}".format(actual_response[key], value)
 
+
 def i_verify_project_schema():
-    #TODO:call json schema validator
-    pass
+    actual_response = project_service.get_project(id=str(CONTEXT.project_response["id"]))
+    schema_failure_reason, is_schema_valid = validate_json_schema(project_service.get_project_schema(), actual_response)
+    assert is_schema_valid, "Project Schema failed due to: {}".format(schema_failure_reason)

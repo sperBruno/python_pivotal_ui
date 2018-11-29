@@ -15,11 +15,13 @@ ${project_data} =    Create Dictionary    name='Test Edit Project'    public=tru
 #  I stored as   Project1
 
 Create a Project 2
-  ${data}=   Create Dictionary    name=Test Edit Project
-  I create a project  ${data}
-  I verify project creation is succesfull
-#  I verify data of project is accurate  ${data}
+  ${timess}=  Get time
+  ${data}=   Create Dictionary    name=Test Edit Project${timess}
 
+  I create a project  ${data}
+  I verify project creation status is  200
+  I verify data of project is accurate  ${data}
+  I verify project schema
 #
 #Edit Project
 #    I send a PUT request to /projects/[Project1.id]

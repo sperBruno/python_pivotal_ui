@@ -9,6 +9,7 @@ config_handler = PropertyHandler.get_instance()
 request_handler = RequestManager.get_instance()
 
 
+
 def i_send_a_post_request_to(endpoint, body):
     logger.info("CommonSteps:: sent %s and %s" % (endpoint, body))
     url = config_handler.get_base_url() + endpoint

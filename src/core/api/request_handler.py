@@ -21,6 +21,7 @@ class RequestHandler:
     def get_request(self, endpoint):
         logger.info("RequestHandler:: GET  {}".format(endpoint))
         response = self.requests_retry_session(session=self.session).get(endpoint)
+        logger.info("RequestHandler:: GET RESPONSE:: {}, {}".format(response.status_code, response.json()))
         return response
 
     @property

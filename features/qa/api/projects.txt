@@ -8,13 +8,7 @@ ${project_data} =    Create Dictionary    name='Test Edit Project'    public=tru
 
 
 *** Test Cases ***
-#Create a Project 1
-#  ${data}=  Create Dictionary    name=Test Edit Project    public=true
-#  I send a POST request to   /projects    ${data}
-#  I expect the status code   200
-#  I stored as   Project1
-
-Create a Project 2
+Create a Project
   ${timess}=  Get time
   ${data}=   Create Dictionary    name=Test Edit Project${timess}
 
@@ -22,13 +16,3 @@ Create a Project 2
   I verify project creation status is  200
   I verify data of project is accurate  ${data}
   I verify project schema
-#
-#Edit Project
-#    I send a PUT request to /projects/[Project1.id]
-#      | description | totally new |
-#    I expect the status code 200
-#    The description field should be equals to totally new
-#
-#Scenario: Delete projects
-#    I send a DELETE request /projects/[Project1.id]
-#    I expect the status code 204

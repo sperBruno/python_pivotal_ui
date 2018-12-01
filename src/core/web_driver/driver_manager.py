@@ -19,7 +19,7 @@ class DriverManager:
         self.restore_previous_time_wait()
 
     @staticmethod
-    def get_instance(self):
+    def get_instance():
         if DriverManager.instance is None:
             DriverManager.instance = DriverManager()
         return DriverManager.instance

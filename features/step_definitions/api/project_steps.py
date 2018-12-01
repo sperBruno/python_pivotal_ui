@@ -22,5 +22,6 @@ def i_verify_data_of_project_is_accurate(project_data):
 
 def i_verify_project_schema():
     actual_response = project_service.get_project(id=str(CONTEXT.project_response["id"]))
-    schema_failure_reason, is_schema_valid = validate_json_schema(project_service.get_project_schema(), actual_response)
-    assert is_schema_valid, "Project Schema failed due to: {}".format(schema_failure_reason)
+    schema = project_service.get_project_schema()
+    schema_failure_reason, is_schema_valid = validate_json_schema(schema, actual_response)
+    BuiltIn().should_be_true(is_schema_valid,  "Project Schema failed due to: {}".format(schema_failure_reason))

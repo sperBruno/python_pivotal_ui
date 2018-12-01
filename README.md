@@ -10,3 +10,4 @@ Following you can see the tools that will be used for this porpuse:
 
 Install:
 pip install robotframework
+pip install simplejson

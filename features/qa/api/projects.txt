@@ -1,0 +1,18 @@
+*** Settings ***
+Library  step_definitions.api.common_steps
+Library  step_definitions.api.project_steps
+Library  BuiltIn
+
+*** Variables ***
+${project_data} =    Create Dictionary    name='Test Edit Project'    public=true
+
+
+*** Test Cases ***
+Create a Project
+  ${timess}=  Get time
+  ${data}=   Create Dictionary    name=Test Edit Project${timess}
+
+  I create a project  ${data}
+  I verify project creation status is  200
+  I verify data of project is accurate  ${data}
+  I verify project schema

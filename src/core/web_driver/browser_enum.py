@@ -1,7 +1,10 @@
-from enum import Enum
 
 
-class BrowserEnum(Enum):
-    CHROME = 1
-    FIREFOX = 2
-    EXPLORER = 3
+class Browser():
+    browser = {'CHROME': "CHROME",
+               'FIREFOX': "FIREFOX",
+               'EXPLORER': "EXPLORER"}
+
+    def __getattribute__(self, browser_type):
+        return self.browser[browser_type]
+

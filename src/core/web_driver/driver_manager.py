@@ -1,6 +1,5 @@
 from datetime import time
 from selenium.webdriver.support.wait import WebDriverWait
-from core.web_driver.browser_enum import BrowserEnum
 from core.web_driver.driver_factory import DriverFactory
 from utils.property_handler import PropertyHandler
 
@@ -12,10 +11,10 @@ class DriverManager:
     instance = None
 
     def __init__(self):
-        self.driverType = BrowserEnum.__getattribute__(PropertyHandler.get_instance().get_browser())
-        self.web_driver_wait = None
-        self.web_driver = DriverFactory.get_driver(self.driverType)
-        self.web_driver.manage().window().maximize()
+        self.driverType = PropertyHandler.get_instance().get_browser().upper()
+        print self.driverType
+        self.web_driver_wait = EXPLICIT_TIME_WAIT
+        self.web_driver = DriverFactory.get_driver(self.driverType).init_driver()
         self.restore_previous_time_wait()
 
     @staticmethod

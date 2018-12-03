@@ -1,5 +1,5 @@
 from selenium.common.exceptions import WebDriverException
-from core.web_driver.browser_enum import BrowserEnum
+from core.web_driver.browser_enum import Browser
 from core.web_driver.chrome import Chrome
 from core.web_driver.firefox import FireFox
 
@@ -12,13 +12,14 @@ class DriverFactory:
         pass
 
     @staticmethod
-    def get_driver(browser):
-        BrowserEnum.valueOf(browser.u())
-        if BrowserEnum.CHROME.name is browser.upper():
+    def get_driver(browser_type):
+        # browser = Browser()
+        if "CHROME" == browser_type.upper():
             return Chrome()
-        elif BrowserEnum.FIREFOX.name is browser.upper():
+        elif "FIREFOX" == browser_type.upper():
+            print "FIREFOXXXXX"
             return FireFox()
-        elif BrowserEnum.EXPLORER.name is browser.upper():
+        elif "EXPLORER" == browser_type.upper():
             raise NotImplemented()
         else:
             raise WebDriverException(BROWSER_NOT_FOUND_MSG)

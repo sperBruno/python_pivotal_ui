@@ -4,14 +4,15 @@ PIVOTAL = "PIVOTAL"
 USERNAME = "user"
 PASS = "password"
 TOKEN = "token"
-BASE_URL = "base_url"
+BASE_UI_URL = "base_ui_url"
+BASE_API_URL = "base_api_url"
 BROWSER = "browser"
 
 
 class PropertyReader:
     property_reader = None
 
-    def __init__(self, properties='../config.properties'):
+    def __init__(self, properties='../../../config.properties'):
         self.__config = ConfigParser.RawConfigParser()
         self.__properties = self.__config.read(properties)
         print properties
@@ -23,8 +24,11 @@ class PropertyReader:
     def get_user(self):
         return self.get_env(USERNAME)
 
-    def get_base_url(self):
-        return self.get_env(BASE_URL)
+    def get_base_ui_url(self):
+        return self.get_env(BASE_UI_URL)
+
+    def get_base_api_url(self):
+        return self.get_env(BASE_API_URL)
 
     def get_password(self):
         return self.get_env(PASS)

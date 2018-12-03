@@ -1,5 +1,5 @@
 *** Settings ***
-Library  step_definitions.login_steps
+Library  step_definitions.ui.login_steps
 
 *** Test Cases ***
 User can login successfully

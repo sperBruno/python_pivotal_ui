@@ -1,16 +1,17 @@
 from robot.api import logger
 
 from pages.base.base_page import BasePage
+from pages.common_actions import CommonActions
 from pages.singin.login_page import LoginPage
 from utils.property_handler import PropertyHandler
 
 
 class PivotalPage(BasePage):
 
-    @FindBy
-    singin_btn = None
+    # @FindBy
+    # singin_btn = None
     def __init__(self):
-        pass
+        BasePage.__init__(self)
 
     def click_login_btn(self):
         logger.info("PivotalPage::click login btn")

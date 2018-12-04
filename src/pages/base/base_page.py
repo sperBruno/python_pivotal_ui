@@ -5,7 +5,7 @@ class BasePage:
 
     def __init__(self):
         self.web_driver = DriverManager.get_instance().get_web_driver()
-        self.web_driver.manage().window().maximize()
+        self.web_driver.maximize_window()
 
         self.web_driver_wait = DriverManager.get_instance().get_web_driver_wait()
         # PageFactory.initElements(self.web_driver, self)

@@ -20,7 +20,8 @@ class CommonActions:
              * @param content    Is the content that will be set to the web element.
              */
         """
-        DriverManager.get_instance().get_web_driver_wait().until(expected_conditions.element_to_be_clickable(web_element))
+        DriverManager.get_instance().get_web_driver_wait().until(
+            expected_conditions.element_to_be_clickable(web_element))
         element = DriverManager.get_instance().get_web_driver().find_element(web_element[0], web_element[1])
         element.clear()
         element.sendKeys(content)
@@ -32,17 +33,9 @@ class CommonActions:
       * example (By.LINK_TEXT, "Sign in")
       * @param webElement Is the web element that will be pressed.
        """
-        DriverManager.get_instance().get_web_driver_wait().until(expected_conditions.element_to_be_clickable(web_element))
+        DriverManager.get_instance().get_web_driver_wait().until(
+            expected_conditions.element_to_be_clickable(web_element))
         DriverManager.get_instance().get_web_driver().find_element(web_element[0], web_element[1]).click()
-
-    # def jsClickElement(final WebElement webElement):
-    # """
-    #      * This method perform a click in a non visible element in the UI.
-    #      *
-    #      * @param webElement the WebElement non visible in the UI.
-    #      """
-    #     ((JavascriptExecutor) DriverManager.get_instance().getWebDriver())
-    #             .executeScript("arguments[0].click()", webElement)
 
     @staticmethod
     def is_visible(web_element):
@@ -58,20 +51,6 @@ class CommonActions:
             logger.error("Element doesn't exists")
             logger.info(e)
             return False
-
-    # @staticmethod
-    # def findWebElement(elements, content):
-    #     """
-    #    * This method perform a search in a WebElement list based on a content string parameter.
-    #    *
-    #    * @param elements is the WebElements lists.
-    #    * @param content  is the content parameter.
-    #    * @return the WebElement search result.
-    #    """
-    #     return elements.stream()
-    #   .filter(element -> content.equals(element.getText()))
-    #   .findAny()
-    #   .orElse(null)
 
     @staticmethod
     def get_text_content(web_element):
@@ -112,7 +91,6 @@ class CommonActions:
         web_element = DriverManager.get_instance().get_web_driver_wait().until(
             expected_conditions.visibility_of_element_located(By.CSS_SELECTOR("div[data-aid='AlertDialog']")))
         return web_element.getText()
-
 
     @staticmethod
     def close_driver_session():

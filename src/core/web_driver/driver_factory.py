@@ -13,11 +13,9 @@ class DriverFactory:
 
     @staticmethod
     def get_driver(browser_type):
-        # browser = Browser()
         if "CHROME" == browser_type.upper():
             return Chrome()
         elif "FIREFOX" == browser_type.upper():
-            print "FIREFOXXXXX"
             return FireFox()
         elif "EXPLORER" == browser_type.upper():
             raise NotImplemented()

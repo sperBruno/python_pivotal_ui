@@ -1,3 +1,5 @@
+from robot.api import logger
+
 from pivotal_api_services.pivotal_services import PivotalServices
 from utils.file_reader import FileReader
 from utils.string_handler import StringHandler
@@ -37,5 +39,5 @@ class ProjectServices(PivotalServices):
         self.get_projects()
         for project in self.projects.values():
             url = self.__project + "/" + str(project)
-            print "Deleting %s" % url
+            logger.info("Deleting %s" % url)
             self.request_handler.delete_request(endpoint=url)

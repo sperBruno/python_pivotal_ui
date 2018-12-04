@@ -13,7 +13,7 @@ class EnvironmentUtil:
     @staticmethod
     def create_json_file(file_path, file_name, data):
         json_file_path = '%s%s/%s-%s.json' % (
-        EnvironmentUtil.get_main_path_repository(), file_path, file_name, uuid.uuid4())
+            EnvironmentUtil.get_main_path_repository(), file_path, file_name, uuid.uuid4())
         with open(json_file_path, 'w+') as fp:
             json.dump(data, fp=fp, indent=4, sort_keys=True)
         return json_file_path

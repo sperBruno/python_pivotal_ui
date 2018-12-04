@@ -1,4 +1,0 @@
-#Intallation with Net4.6 installed and QA regression suites
-../features/qa/api/projects.txt
-#../features/qa/ui/login.txt
-#--ArgumentFile ../argument_files/regression_tests_when_console_installed

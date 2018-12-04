@@ -27,8 +27,7 @@ class RequestHandler:
     def delete_request(self, endpoint):
         logger.info("RequestHandler:: DELETE  {}".format(endpoint))
         response = self.requests_retry_session(session=self.session).delete(endpoint)
-        # logger.info("RequestHandler:: DELETE RESPONSE:: {}, {}".format(response.status_code, response.json()))
-        # return response
+        return response
 
     @property
     def main_url(self):

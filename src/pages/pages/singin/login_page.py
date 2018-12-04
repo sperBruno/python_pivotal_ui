@@ -18,7 +18,7 @@ class LoginPage(BasePage):
         user_txt = self.web_driver.find_element_by_id("credentials_username")
         user_txt.clear()
         user_txt.click()
-        user_txt.send_keys("pepito@mailinator.com")
+        user_txt.send_keys(user_name)
 
     def set_password(self, user_password):
         logger.info("LoginPage:: set user {}".format(user_password))
@@ -27,7 +27,7 @@ class LoginPage(BasePage):
         password_txt = self.web_driver.find_element_by_id("credentials_password")
         password_txt.clear()
         password_txt.click()
-        password_txt.send_keys("P@ssw0rd")
+        password_txt.send_keys(user_password)
 
     def click_login(self):
         logger.info("LoginPage::click login button")
@@ -35,4 +35,11 @@ class LoginPage(BasePage):
         CommonActions.click_button((By.CLASS_NAME, "app_signin_action_button"))
         # next_btn = driver.find_element_by_class_name("app_signin_action_button")
         # next_btn.click()
+        # return Dashboard()
+
+    def login_as(self, user, password):
+        self.set_user(user)
+        self.click_login()
+        self.set_password(password)
+        self.click_login()
         return Dashboard()

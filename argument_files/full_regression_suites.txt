@@ -1,2 +1,2 @@
-#../features/qa/login.txt
+../features/qa/ui/login.txt
 ../features/qa/api/projects.txt

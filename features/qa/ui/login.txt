@@ -1,12 +1,13 @@
 *** Settings ***
 Library  step_definitions.ui.login_steps
+Library  step_definitions.ui.common_keywords
+Suite Teardown    close driver session
 
 *** Test Cases ***
 User can login successfully
     I navigate to pivotal page
     I click on login button
-    I set 'Bruno' as user
-    I set password '12sdf'
-    I click on login button on login page
+    I login with credential    pepito@mailinator.com    P@ssw0rd
     Dashboard is displayed
+    Dashboard user displayed    PEPITO2
 

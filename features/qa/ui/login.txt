@@ -1,0 +1,28 @@
+*** Settings ***
+Library  step_definitions.ui.login_steps
+Library  step_definitions.ui.common_keywords
+Library  step_definitions.api.project_steps
+Library  BuiltIn
+
+Test Setup    Create a Project for login test
+Suite Teardown    close driver session
+
+*** Test Cases ***
+User can login successfully
+    I navigate to pivotal page
+    I click on login button
+    I login with credential    pepito@mailinator.com    P@ssw0rd
+    Dashboard is displayed
+    Dashboard user displayed    PEPITO2
+
+
+
+*** Variables ***
+${project_data} =    Create Dictionary    name='Test Edit Project'    public=true
+
+
+*** Keywords ***
+Create a Project for login test
+  ${timess}=  Get time
+  ${data}=   Create Dictionary    name=Test Edit Project${timess}
+  I create a project  ${data}

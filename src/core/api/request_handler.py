@@ -10,7 +10,7 @@ class RequestHandler:
 
     def __init__(self):
         self.session = requests.Session()
-        self.main_url = PropertyHandler.get_instance().get_base_url()
+        self.main_url = PropertyHandler.get_instance().get_base_api_url()
 
     def post_request(self, endpoint, body):
         logger.info("RequestHandler:: POST  {}, {}, {}".format(endpoint, json.dumps(body), self.session.headers))
@@ -22,6 +22,11 @@ class RequestHandler:
         logger.info("RequestHandler:: GET  {}".format(endpoint))
         response = self.requests_retry_session(session=self.session).get(endpoint)
         logger.info("RequestHandler:: GET RESPONSE:: {}, {}".format(response.status_code, response.json()))
+        return response
+
+    def delete_request(self, endpoint):
+        logger.info("RequestHandler:: DELETE  {}".format(endpoint))
+        response = self.requests_retry_session(session=self.session).delete(endpoint)
         return response
 
     @property

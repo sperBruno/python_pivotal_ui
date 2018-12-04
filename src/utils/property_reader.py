@@ -12,7 +12,7 @@ BROWSER = "browser"
 class PropertyReader:
     property_reader = None
 
-    def __init__(self, properties='../../../config.properties'):
+    def __init__(self, properties='..\config.properties'):
         self.__config = ConfigParser.RawConfigParser()
         self.__properties = self.__config.read(properties)
         print properties

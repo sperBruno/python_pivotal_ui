@@ -13,9 +13,9 @@ class DriverManager:
     def __init__(self):
         self.driverType = PropertyHandler.get_instance().get_browser().upper()
         print self.driverType
-        self.web_driver_wait = EXPLICIT_TIME_WAIT
+        self.web_driver_wait = None
         self.web_driver = DriverFactory.get_driver(self.driverType).init_driver()
-        # self.restore_previous_time_wait()
+        self.restore_previous_time_wait()
 
     @staticmethod
     def get_instance():
@@ -30,9 +30,7 @@ class DriverManager:
         return self.web_driver_wait
 
     def set_implicit_time_wait(self, implicit_time_wait):
-        self.web_driver.implicitly_wait(time_to_wait=implicit_time_wait)
-        # self.web_driver.manage().timeouts().implicitlyWait(implicit_time_wait, time.second)
-        # self.web_driver.
+        self.web_driver.implicitly_wait(implicit_time_wait)
 
     def set_explicit_time_wait(self, explicit_time_wait):
         self.web_driver_wait = WebDriverWait(self.web_driver, explicit_time_wait)

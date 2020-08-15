@@ -1,4 +1,3 @@
-from robot.api.deco import keyword
 from robot.api import logger
 from pages.pivotal_page import PivotalPage
 from robot.libraries.BuiltIn import BuiltIn
@@ -15,6 +14,7 @@ login_page = pivotal.click_login_btn()
 
 logger.info("Inserting to user textbox: {}".format("test"))
 login_page.set_user("test")
+login_page.click_login()
 
 logger.info("Inserting to password textbox: {}".format("test"))
 login_page.set_password("test")

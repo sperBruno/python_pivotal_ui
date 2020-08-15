@@ -12,7 +12,7 @@ class DriverManager:
 
     def __init__(self):
         self.driverType = PropertyHandler.get_instance().get_browser().upper()
-        print self.driverType
+        print(self.driverType)
         self.web_driver_wait = None
         self.web_driver = DriverFactory.get_driver(self.driverType).init_driver()
         self.restore_previous_time_wait()

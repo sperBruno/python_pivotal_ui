@@ -1,4 +1,6 @@
-import ConfigParser
+import os
+
+import configparser
 
 PIVOTAL = "PIVOTAL"
 USERNAME = "user"
@@ -10,12 +12,14 @@ BROWSER = "browser"
 
 
 class PropertyReader:
-    property_reader = None
+    __instance = None
 
-    def __init__(self, properties='..\config.properties'):
-        self.__config = ConfigParser.RawConfigParser()
-        self.__properties = self.__config.read(properties)
-        print properties
+    def __init__(self, properties='..\..\config.properties'):
+        self.__config = configparser.RawConfigParser()
+        path_join = os.path.join(os.path.dirname(os.path.abspath(__file__)), properties)
+        print(path_join)
+        self.__properties = self.__config.read(path_join)
+        print(self.__properties)
         assert len(self.__properties) > 0, "config.properties file must exist at root path"
 
     def get_env(self, variable):
@@ -44,3 +48,9 @@ class PropertyReader:
 
     def get_explicit_time_wait(self):
         return int(self.get_env("explicitTimeWait"))
+
+    @staticmethod
+    def get_property():
+        if PropertyReader.__instance is None:
+            PropertyReader.__instance = PropertyReader()
+        return PropertyReader.__instance

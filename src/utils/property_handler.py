@@ -5,4 +5,4 @@ class PropertyHandler:
 
     @staticmethod
     def get_instance():
-        return PropertyReader()
+        return PropertyReader.get_property()

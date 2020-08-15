@@ -9,6 +9,6 @@ Following you can see the tools that will be used for this porpuse:
  2. Selenium
 
 Install:
-pip install robotframework
-pip install simplejson
-pip install selenium
+1. pip install robotframework
+2. pip install simplejson
+3. pip install selenium

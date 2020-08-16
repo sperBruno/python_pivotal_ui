@@ -46,6 +46,6 @@ def dashboard_is_displayed():
 
 def dashboard_user_displayed(user_name):
     logger.info("Pivotal Dashboard is displayed")
-    print dashboard_page.get_user_name()
+    print(dashboard_page.get_user_name())
     BuiltIn().should_be_equal(user_name, dashboard_page.get_user_name(),
                               "Dashboard Page is not displayed %s" % dashboard_page.get_user_name())

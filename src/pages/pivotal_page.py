@@ -1,8 +1,8 @@
 from robot.api import logger
 from selenium.webdriver.common.by import By
 
+from core.selenium_actions.common_actions import CommonActions
 from pages.base.base_page import BasePage
-from utils.common_actions import CommonActions
 from pages.singin.login_page import LoginPage
 from utils.property_handler import PropertyHandler
 

@@ -12,14 +12,14 @@ pivotal.go_to_pivotal_page()
 logger.info("Navigating to Pivotal webpage")
 login_page = pivotal.click_login_btn()
 
-logger.info("Inserting to user textbox: {}".format("test"))
-login_page.set_user("test")
+logger.info("Inserting to user textbox: {}".format("pirateTest@mailinator.com"))
+login_page.set_user("pirateTest@mailinator.com")
 login_page.click_login()
 
-logger.info("Inserting to password textbox: {}".format("test"))
-login_page.set_password("test")
+logger.info("Inserting to password textbox: {}".format("pirateTest"))
+login_page.set_password("pirateTest123")
 
 dashboard_page = login_page.click_login()
 
 logger.info("Pivotal Dashboard is displayed")
-BuiltIn().should_be_true(dashboard_page.is_displayed(), "Dashboard Page is not displayed")
+BuiltIn().should_be_true(dashboard_page.is_dashboard_displayed(), "Dashboard Page is not displayed")

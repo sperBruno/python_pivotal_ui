@@ -32,6 +32,7 @@ class PropertyReader:
         return self.get_env(BASE_UI_URL)
 
     def get_base_api_url(self):
+        print(self.get_env(BASE_API_URL))
         return self.get_env(BASE_API_URL)
 
     def get_password(self):
@@ -52,5 +53,6 @@ class PropertyReader:
     @staticmethod
     def get_property():
         if PropertyReader.__instance is None:
+            print("NEW PRoPerty hhangler")
             PropertyReader.__instance = PropertyReader()
         return PropertyReader.__instance

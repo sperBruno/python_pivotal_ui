@@ -3,7 +3,6 @@ from core.api.request_manager import RequestManager
 
 
 class PivotalServices:
-
     __metaclass__ = ABCMeta
 
     def __init__(self):

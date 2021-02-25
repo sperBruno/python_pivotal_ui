@@ -10,6 +10,7 @@ class RequestHandler:
 
     def __init__(self):
         self.session = requests.Session()
+        print(PropertyHandler.get_instance())
         self.main_url = PropertyHandler.get_instance().get_base_api_url()
 
     def post_request(self, endpoint, body):
@@ -29,8 +30,7 @@ class RequestHandler:
         response = self.requests_retry_session(session=self.session).delete(endpoint)
         return response
 
-    @property
-    def main_url(self):
+    def get_main_url(self):
         return self.main_url
 
     def requests_retry_session(

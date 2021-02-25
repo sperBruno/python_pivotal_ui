@@ -1,9 +1,9 @@
 from robot.api import logger
 from selenium.webdriver.common.by import By
 
+from core.selenium_actions.common_actions import CommonActions
 from pages.base.base_page import BasePage
 from pages.dashboard.dashboard import Dashboard
-from utils.common_actions import CommonActions
 
 
 class LoginPage(BasePage):
@@ -31,11 +31,8 @@ class LoginPage(BasePage):
 
     def click_login(self):
         logger.info("LoginPage::click login button")
-        # CommonActions.click_button(self.web_driver.find_element_by_class_name("app_signin_action_button"))
         CommonActions.click_button((By.CLASS_NAME, "app_signin_action_button"))
-        # next_btn = driver.find_element_by_class_name("app_signin_action_button")
-        # next_btn.click()
-        # return Dashboard()
+        return Dashboard()
 
     def login_as(self, user, password):
         self.set_user(user)

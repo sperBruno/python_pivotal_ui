@@ -1,0 +1,13 @@
+attrs==19.3.0
+certifi==2020.6.20
+chardet==3.0.4
+configparser==5.0.0
+idna==2.10
+jsonschema==3.2.0
+pyrsistent==0.16.0
+requests==2.24.0
+robotframework==3.2.1
+selenium==3.141.0
+simplejson==3.17.2
+six==1.15.0
+urllib3==1.25.10

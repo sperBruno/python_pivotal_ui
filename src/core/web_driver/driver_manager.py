@@ -2,6 +2,7 @@ from datetime import time
 from selenium.webdriver.support.wait import WebDriverWait
 from core.web_driver.driver_factory import DriverFactory
 from utils.property_handler import PropertyHandler
+from robot.api import logger
 
 IMPLICIT_TIME_WAIT = PropertyHandler.get_instance().get_implicit_time_wait()
 EXPLICIT_TIME_WAIT = PropertyHandler.get_instance().get_explicit_time_wait()
@@ -12,7 +13,7 @@ class DriverManager:
 
     def __init__(self):
         self.driverType = PropertyHandler.get_instance().get_browser().upper()
-        print self.driverType
+        logger.console(self.driverType)
         self.web_driver_wait = None
         self.web_driver = DriverFactory.get_driver(self.driverType).init_driver()
         self.restore_previous_time_wait()
